@@ -10,7 +10,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from dotenv import load_dotenv
 load_dotenv()
-api_key = os.getenv('TOGETHER_AI_API_KEY')
+#Loading api keys
+api_key = os.getenv('TOGETHER_AI_API_KEY') 
 cohere_api_key=os.getenv('COHERE_API_KEY')
 google_api_key=os.getenv('GOOGLE_API_KEY')
 llm = Together(together_api_key=api_key,
