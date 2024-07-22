@@ -19,12 +19,12 @@ llm = Together(together_api_key=api_key,
                temperature=0.0,
                max_tokens=512,
 )
-loader=open('Medicines.json',encoding='utf-8',)
+loader=open('Medicines.json',encoding='utf-8')
 data=json.load(loader)
 splitter=RecursiveJsonSplitter()
 splitted_docs=splitter.create_documents(texts=data)
 embeddings=GoogleGenerativeAIEmbeddings(google_api_key=google_api_key,model='models/text-embedding-004')
-db=Chroma.from_documents(splitted_docs,embedding=embeddings,)
+db=Chroma.from_documents(splitted_docs,embedding=embeddings)
 retriever=db.as_retriever()
 template = """Answer the question based only on the following context:
 {context}
